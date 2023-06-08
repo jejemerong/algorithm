@@ -10,11 +10,11 @@ class Queue {
 
 Queue* createQueue(unsigned capacity) {
     Queue* queue = new Queue();
-    queue->capacity = capacity;
+    queue->capacity = capacity; // length
     queue->head = queue->size = 0;
 
-    queue->rear = capacity - 1;
-    queue->array = new int[queue->capacity];
+    queue->rear = capacity - 1; 
+    queue->array = new int[queue->capacity]; // length 만큼 배열 할당
     return queue;
 }
 
@@ -28,7 +28,7 @@ int isEmpty(Queue* queue) {
 
 void enqueue(Queue* queue, int item) {
     if(isFull(queue)) return;
-    queue->rear = (queue->rear + 1)%queue->capacity;
+    queue->rear = (queue->rear + 1)%queue->capacity; // 배열의 끝에 도달한 경우 0 으로 돌아가도록
     queue->array[queue->rear] = item;
     queue->size = queue->size + 1;
     cout << item << "enqueued~!~!"<< endl;
@@ -39,7 +39,7 @@ int dequeue (Queue* queue) {
         return INT_MIN;
     }
     int item = queue->array[queue->head];
-    queue->head = (queue->head + 1) % queue->capacity;
+    queue->head = (queue->head + 1) % queue->capacity; 
     queue->size = queue->size - 1;
     return item;
 }
@@ -48,7 +48,7 @@ int head (Queue* queue) {
     if(isEmpty(queue)){
         return INT_MIN;
     }
-    return queue->array[queue->front];
+    return queue->array[queue->head];
 }
 
 int rear(Queue* queue) {
@@ -69,5 +69,11 @@ int main () {
     cout << dequeue(queue) << "dequeued from queue"<< endl;
     cout << "HEAD: " << head(queue) << endl;
     cout << "REAR: " << rear(queue) <<  endl;
+
+    while (!isEmpty(queue)){
+        cout << " " << queue->array[queue->head];
+        dequeue(queue);
+
+    }
     return 0;
 }
