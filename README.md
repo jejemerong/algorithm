@@ -1,7 +1,7 @@
 # Data Structure
 
-- [ ] stack
-- [ ] queue
+- [x] stack
+- [x] queue
 - [ ] graph
 
 # Algorithm
