@@ -1,9 +1,10 @@
 # Data Structure
 
--[X] stack -[X] queue
--[] graqh
+- [ ] stack
+- [ ] queue
+- [ ] graph
 
 # Algorithm
 
--[] DFS
--[] BFS
+- [ ] DFS
+- [ ] BFS
