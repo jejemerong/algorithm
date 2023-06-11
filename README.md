@@ -1,10 +1,18 @@
 # Data Structure
 
+- [ ] array
+
 - [x] stack
 - [x] queue
-- [ ] graph
+- [ ] linked list
+
+- [x] graph
+- [ ] tree
 
 # Algorithm
 
-- [ ] DFS
-- [ ] BFS
+- [x] DFS_recursive
+- [x] DFS_stack
+- [x] BFS
+- [ ] Sorting
+- [ ] Binary Search
