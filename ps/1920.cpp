@@ -15,13 +15,3 @@ int main()
 
   return 0;
 }
-
-int main() {
-	int n;
- 
-	while (cin >> n) {
-		cout << n << endl;
-	}
- 
-	cout << "end";
-}
