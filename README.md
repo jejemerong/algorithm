@@ -6,13 +6,13 @@
 - [x] queue
 - [ ] linked list
 
-- [x] graph
+- [ ] graph
 - [ ] tree
 
 # Algorithm
 
 - [x] DFS_recursive
 - [x] DFS_stack
-- [x] BFS
+- [ ] BFS
 - [ ] Sorting
 - [ ] Binary Search

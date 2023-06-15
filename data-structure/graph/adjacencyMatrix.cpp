@@ -1,21 +1,21 @@
 #include <iostream>
+ 
 using namespace std;
  
+int node, edge;
+int adj[10][10];
+ 
 int main(){
-    // n: vertices 개수
-    // m: edges 개수
-    int n, m;
-    cin >> n >> m;
-    
-    int adjMat[n + 1][n + 1];
-    for (int i = 0; i < m; i++) {
-        int u, v;
-        cin >> u >> v;
-        adjMat[u][v] = 1;
-        adjMat[v][u] = 1;
-        // for a directed graph with an edge pointing from u
-        // to v,we just assign adjMat[u][v] as 1
+    cin >> node >> edge;
+ 
+    for(int i = 0; i < edge; i++)
+    {
+        int a, b; cin >> a >> b;
+ 
+        // 무향 그래프이기 때문에 간선과 연결되어 있는 노드를 모두 true 처리
+        adj[a][b] = 1;
+        adj[b][a] = 1;
+        
     }
-
-    return 0;
+    
 }
