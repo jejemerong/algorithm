@@ -6,7 +6,7 @@
 - [x] queue
 - [ ] linked list
 
-- [ ] graph
+- [x] graph
 - [ ] tree
 
 # Algorithm
@@ -16,3 +16,4 @@
 - [ ] BFS
 - [ ] Sorting
 - [ ] Binary Search
+- [x] Dijkstra
