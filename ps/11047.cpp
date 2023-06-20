@@ -26,12 +26,16 @@ int main() {
   }
 
   sort(v.begin(), v.end(), comp);
-	for (int i = 0; i < n; i++) {
-		while (k - v[i] >= 0) {
-			output++;
-			k -= v[i];
-		}
-	}
+	// for (int i = 0; i < n; i++) {
+	// 	while (k - v[i] >= 0) {
+	// 		output++;
+	// 		k -= v[i];
+	// 	}
+	// }
+  for(int i = 0; i < v.size(); i++){
+    output += k / v[i];
+    k = k % v[i];
+  }
     
   printf("%d\n", output);
   return 0;
