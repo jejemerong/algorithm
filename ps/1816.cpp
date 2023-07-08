@@ -2,15 +2,13 @@
 #include <vector>
 using namespace std;
 
-const int MAX = 1e6 + 1; // 이거 왜 1을 더해야 하는지
+const int MAX = 1e6 + 1;
 
-int minFactor[MAX] = {-1, -1, }; // 
-vector<int> prime; // 소수 배열
+int minFactor[MAX] = {-1, -1, };
+vector<int> prime;
 
 void eratosthenes(void)
 {
-	// minFactor[0] = minFactor[1] = -1; // {} 로 초기화할 수 있는지 -> 할 수 있음.
-
 	for (int i = 2; i < MAX; i++)
 	{
 		minFactor[i] = i;
