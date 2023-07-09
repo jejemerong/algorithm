@@ -6,13 +6,9 @@ using namespace std;
 int N, K;
 int W, V;
 
-// vector< priority_queue <pair <int, int > > > pair_q;
-// priority_queue <pair<int, int > > pair_q;
-// priority_queue <int> single_q;
-
 int main()
 {
-//   freopen("input.txt", "r", stdin);
+  freopen("input.txt", "r", stdin);
   scanf("%d %d", &N, &K);
   int * maxIndex = new int[K];
   std::fill(maxIndex, maxIndex+K, 0);
