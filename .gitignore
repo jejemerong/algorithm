@@ -1,1 +1,6 @@
-.vscode
+# Ignore All
+*
+# cpp 제외
+!*.cpp
+# dir 제외
+!*/
