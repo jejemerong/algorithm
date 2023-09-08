@@ -7,7 +7,7 @@ int main()
     int N;
     scanf("%d", &N);
 
-    int sum = 1; // TODO: 만약 start, end index 가 다른 상황에서도 sum 이 1 일까?
+    int sum = 1;
     int result = 0;
     // 자연수 1부터 시작
     int start = 1;
