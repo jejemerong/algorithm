@@ -8,9 +8,9 @@ int main()
 {
     ll N;
     scanf("%lld", &N);
-    ll result;
-    for(ll i = 2; i <= N; i++){
-        if(N/i == 0){
+    ll result = N;
+    for(ll i = 2; i <= sqrt(N); i++){
+        if(N%i == 0){
             result -= result / i;
             while(N % i == 0) N /= i;
         }
