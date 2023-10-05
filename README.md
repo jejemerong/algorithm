@@ -13,7 +13,7 @@
 
 - [x] DFS_recursive
 - [x] DFS_stack
-- [ ] BFS
+- [x] BFS
 - [ ] Sorting
-- [ ] Binary Search
+- [x] Binary Search
 - [x] Dijkstra
