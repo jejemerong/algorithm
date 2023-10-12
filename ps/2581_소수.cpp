@@ -13,6 +13,10 @@ int main()
     queue <int> acc;
 
     for(int i = M; i <= N; i++){
+        if(i == 1) {
+            arr[i] = 0;
+            continue;
+        }
         arr[i] = i;
     }
 
