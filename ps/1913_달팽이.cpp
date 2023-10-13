@@ -4,45 +4,54 @@ using namespace std;
 
 int main()
 {
-    // freopen("input.txt", "r", stdin);
-    int n, num;
-    scanf("%d\n%d", &n, &num);
-    int N = n*n;
-    // printf("%d", N);
+    ios::sync_with_stdio(false);
+    cout.tie(nullptr);
 
+    int n, num; // 입력값
+    scanf("%d\n%d", &n, &num);
+    int Arr[n][n]; // 달팽이 배열
+
+    // 방향 배열
     int dx[4] = {1, 0, -1, 0};
     int dy[4] = {0, 1, 0, -1};
 
-    int Arr[n][n];
+    int value = n*n; // 배열 요소 값
+    int index = 0; // 방향 기준 값
+    int iter = n; // 모서리를 이룰 만큼의 반복 횟수
+    int count = 0; // 모서리 반복 기준 값
+    int x = -1; // x 좌표
+    int y = 0; // y 좌표
+    int u, v; // 찾아야 하는 값 좌표
 
-    int count = 0;
-    int index = 0;
-    int x = 0;
-    int y = 0;
-    int u, v;
+    while(value > 0){
+        for(int i = 0; i < iter; i++){
+            x += dx[index % 4];
+            y += dy[index % 4];
+            Arr[x][y] = value;
 
-    while(count < N){
-        if(count % n){
-            count += 1;
-            index += 1;
+            if(value == num){
+                u = x + 1;
+                v = y + 1;
+            }
+
+            value--;
         }
-        count = count + 1;
-        Arr[x][y] = N - count + 1;
-        x += dx[index % 4];
-        y += dy[index % 4];
 
-        if((N - count + 1) == num){
-            // printf("x: %d, y: %d", x, y);
-            u = x + 1;
-            v = y + 1;
+        if(count % 2 == 0){
+            count = 1;
+            iter--;
+        } else {
+            count++;
         }
+
+        index++;
     }
 
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
-            printf("%d ", Arr[i][j]);
+            cout << Arr[i][j] << " ";
         }
         cout << "\n";
     }
-    printf("%d %d", u, v);
+    cout << u << " " << v;
 }
