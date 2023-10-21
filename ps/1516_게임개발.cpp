@@ -4,56 +4,47 @@
 
 using namespace std;
 
-#define INF 999999
-
 int main()
 {
     int N;
     scanf("%d", &N);
     vector<vector<int> > buildings;
-    typedef pair<int, int> edge;
-    vector<vector<edge> > costs;
+    vector<int> indegree;
+    vector<int> costs;
     vector<int> result;
     // TODO: 한꺼번에 resize 하는 방법 없나
     buildings.resize(N + 1);
+    indegree.resize(N + 1, 0);
     costs.resize(N + 1);
-    result.resize(N + 1);
+    result.resize(N + 1, 0);
 
     queue<int> myqueue;
 
     for(int i = 1; i <= N; i++){
-        int num = INF;
-        while(num != -1){
-            if(num == INF){
-                scanf("%d ", &num);
-                costs[i].push_back(make_pair(0, num));
-            } else {
-                scanf("%d ", &num);
-                if(num != -1) {
-                    buildings[num].push_back(i);
-                    costs[i][0].first++;
-                }
-            }
+        int num = 999999;
+        scanf("%d ", &costs[i]);
+        while(num > 0){
+            scanf("%d ", &num);
+            if(num == -1) break;
+            buildings[num].push_back(i);
+            indegree[i]++;
         }
-        if(costs[i][0].first == 0) {
-            myqueue.push(i);
-        }
+        if(indegree[i] == 0) myqueue.push(i);
     }
 
     while(!myqueue.empty())
     {
-        int index = myqueue.front(); // 1, 10
+        int current = myqueue.front();
         myqueue.pop();
-        for(int i = 0; i < buildings[index].size(); i++){
-            int next_build = buildings[index][i]; // 인접 노드 번호
-            // result[next_build] += costs[index][0].second;
-            result[next_build] = max(result[next_build], result[index] + costs[index][0].second);
-            costs[next_build][0].first--;
-            if(costs[next_build][0].first == 0){
-                myqueue.push(next_build);
+        for(int i = 0; i < buildings[current].size(); i++){
+            int next = buildings[current][i];
+            indegree[next]--;
+            result[next] = max(result[next], result[current] + costs[current]);
+            if(indegree[next] == 0){
+                myqueue.push(next);
             }
         }
-        result[index] += costs[index][0].second; // 자기꺼는 맨 마지막에 넣는다
+        result[current] += costs[current];
     }
 
     for(int i = 1; i <= N; i++){
