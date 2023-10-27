@@ -2,29 +2,36 @@
 
 using namespace std;
 
-
 int main()
 {
     int M, K, sum = 0;
     double result = 0;
     scanf("%d", &M);
-    int eachColor[51];
+    int colors[M];
     for(int i = 0; i < M; i++){
-        scanf("%d", &eachColor[i]);
-        sum += eachColor[i];
+        scanf("%d", &colors[i]);
+        sum += colors[i];
     }
-    // 확률: Sum(stones[i]Ck) / sumCk
-    int stones[sum][K];
-    for(int i = 0; i <= sum; i++){
-        for(int j = 0; j <= K; j++){
-            stones[i][i] = 1;
-            stones[i][0] = 1;
-            stones[i][1] = i;
+    scanf("%d", &K);
+    for(int i = 0; i < M; i++){
+        // 조건문에 따라 probability 의 값 할당이 달라짐!
+        double probability = 0.0;
+        if(colors[i] >= K){
+            probability = 1.0;
+            for(int j = 0; j < K; j++){
+                probability *= (double)(colors[i] - j) / (sum - j);
+            }
         }
+        // double probability = 1.0;
+        // if(colors[i] < K) continue;
+        // for(int j = 0; j < K; j++){
+        //     probability *= (double)(colors[i] - j) / (sum - j);
+        // }
+        result += probability;
     }
-    for(int i = 2; i <= sum; i++){
-        for(int j = 1; j <= K; j++){
-            stones[i][j] = stones[i-1][j] + stones[i-1][j-1];
-        }
-    }
+    cout << fixed;
+    cout.precision(9);
+    cout << result;
+
+    return 0;
 }
